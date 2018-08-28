@@ -1,58 +1,5 @@
-program elev_angle
-
-   implicit none
-
-   integer, external :: iargc
-
-   integer :: istatus
-   integer :: i, j, n_bins, we_dim, sn_dim
-   real, pointer, dimension(:,:) :: hgt
-   real, allocatable, dimension(:,:,:) :: topo_angle
-   character (len=1024) :: filename
-
-   if (iargc() /= 1) then
-      write(6,*) ' '
-      write(6,*) 'Usage: elev_angle.exe <geogrid output file>'
-      write(6,*) ' '
-      stop
-   end if
-
-   call getarg(1,filename)
-
-   !
-   ! Read in topography field from geogrid output file
-   !
-   call read_topo_field(filename, hgt, we_dim, sn_dim, istatus)
-   if (istatus /= 0) stop
-
-   write(6,*) 'Read HGT_M field dimensioned ',we_dim,sn_dim
-   do j=1,sn_dim,10
-   do i=1,we_dim,10
-      write(6,'(a6,i3,a1,i3,a2,f13.5)') 'HGT_M(',i,',',j,')=',hgt(i,j)
-   end do
-   end do
-
-   n_bins = 180
-   allocate(topo_angle(we_dim, sn_dim, n_bins))
-
-   ! 
-   ! Compute elevation angles for each azimuth angle bin
-   !
-   topo_angle = 10.0 
-
-   !
-   ! Write elevation angle data to intermediate file
-   !
-   call write_elev_angles(topo_angle, we_dim, sn_dim, n_bins, istatus)
-
-
-   deallocate(topo_angle)
-   deallocate(hgt)
-
-   stop
-
-end program elev_angle
-
+module elev_angle_helpers
+contains
 
 subroutine read_topo_field(filename, hgt, we_dim, sn_dim, istatus)
 
@@ -204,3 +151,63 @@ subroutine write_elev_angles(field, we_dim, sn_dim, kdim, istatus)
    istatus = 0
 
 end subroutine write_elev_angles
+
+end module elev_angle_helpers
+
+program elev_angle
+
+   use elev_angle_helpers
+
+   implicit none
+
+   integer, INTRINSIC :: iargc
+
+   integer :: istatus
+   integer :: i, j, n_bins, we_dim, sn_dim
+   real, pointer, dimension(:,:) :: hgt
+   real, allocatable, dimension(:,:,:) :: topo_angle
+   character (len=1024) :: filename
+
+   if (iargc() /= 1) then
+      write(6,*) ' '
+      write(6,*) 'Usage: elev_angle.exe <geogrid output file>'
+      write(6,*) ' '
+      stop
+   end if
+
+   call getarg(1,filename)
+
+   !
+   ! Read in topography field from geogrid output file
+   !
+   call read_topo_field(filename, hgt, we_dim, sn_dim, istatus)
+   if (istatus /= 0) stop
+
+   write(6,*) 'Read HGT_M field dimensioned ',we_dim,sn_dim
+   do j=1,sn_dim,10
+   do i=1,we_dim,10
+      write(6,'(a6,i3,a1,i3,a2,f13.5)') 'HGT_M(',i,',',j,')=',hgt(i,j)
+   end do
+   end do
+
+   n_bins = 180
+   allocate(topo_angle(we_dim, sn_dim, n_bins))
+
+   ! 
+   ! Compute elevation angles for each azimuth angle bin
+   !
+   topo_angle = 10.0 
+
+   !
+   ! Write elevation angle data to intermediate file
+   !
+   call write_elev_angles(topo_angle, we_dim, sn_dim, n_bins, istatus)
+
+
+   deallocate(topo_angle)
+   deallocate(hgt)
+
+   stop
+
+end program elev_angle
+

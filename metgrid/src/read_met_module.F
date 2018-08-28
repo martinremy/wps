@@ -34,7 +34,7 @@ module read_met_module
       !  1) BUILD FILENAME BASED ON TIME 
       filename = ' '
       if (.not. source_is_constant) then 
-         write(filename, '(a)') trim(fg_source)//':'//trim(datestr)
+         write(filename, '(a)') trim(fg_source)//'_'//trim(datestr)
       else
          write(filename, '(a)') trim(fg_source)
       end if

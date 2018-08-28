@@ -56,9 +56,9 @@ subroutine datint(fuldates, nful, hstart, ntimes, interval, out_format, prefix)
      call mprintf(.true.,LOGFILE,"Looking for data at time %s",s1=hdate(1:datelen))
      do iful = 1, nful
         if (fuldates(iful).eq.hdate) then
-	   call mprintf(.true.,STDOUT,"Found file:      %s:%s", &
+	   call mprintf(.true.,STDOUT,"Found file:      %s_%s", &
 	         s1=trim(prefix),s2=hdate(1:datelen))
-	   call mprintf(.true.,LOGFILE,"Found file:      %s:%s", &
+	   call mprintf(.true.,LOGFILE,"Found file:      %s_%s", &
 	         s1=trim(prefix),s2=hdate(1:datelen))
            cycle TIMELOOP
         else if ((fuldates(iful).lt.hdate) .and. &
@@ -82,7 +82,7 @@ subroutine datint(fuldates, nful, hstart, ntimes, interval, out_format, prefix)
 	   call mprintf(.true.,LOGFILE,"B Time Difference = %f",f1=float(intervalB) / 3600.)
            AWT = 1. - (float(intervalA)/float(intervalA+intervalB))
 
-           open(10, file=trim(prefix)//':'//fuldates(iful)(1:datelen), form='unformatted', &
+           open(10, file=trim(prefix)//'_'//fuldates(iful)(1:datelen), form='unformatted', &
                 status='old')
            call clear_storage
            READLOOP1 : do
@@ -149,9 +149,9 @@ subroutine datint(fuldates, nful, hstart, ntimes, interval, out_format, prefix)
            enddo READLOOP1
 44         close(10)
 
-           open(10, file=trim(prefix)//':'//fuldates(iful+1)(1:datelen), status='old', &
+           open(10, file=trim(prefix)//'_'//fuldates(iful+1)(1:datelen), status='old', &
                 form = 'unformatted')
-           open(11, file=trim(prefix)//':'//hdate(1:datelen), status='new', form='unformatted')
+           open(11, file=trim(prefix)//'_'//hdate(1:datelen), status='new', form='unformatted')
            READLOOP2 : do
               read (10,END=45) ifv
               if ( ifv .eq. 5) then     ! WPS

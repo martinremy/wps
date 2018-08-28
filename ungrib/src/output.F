@@ -132,27 +132,27 @@ subroutine output(hdate, nlvl, maxlvl, plvl, interval, iflag, out_format, prefix
   
   if (iflag.eq.1) then
      if (nfiles.eq.0) then
-        open(iunit, file=trim(get_path(prefix))//'PFILE:'//HDATE(1:datelen), form='unformatted', &
+        open(iunit, file=trim(get_path(prefix))//'PFILE_'//HDATE(1:datelen), form='unformatted', &
              position='REWIND')
         nfiles = nfiles + 1
         filedates(nfiles)(1:datelen) = hdate(1:datelen)
      else
         DOFILES : do k = 1, nfiles
            if (hdate(1:datelen).eq.filedates(k)(1:datelen)) then
-              open(iunit, file=trim(get_path(prefix))//'PFILE:'//HDATE(1:datelen), form='unformatted',&
+              open(iunit, file=trim(get_path(prefix))//'PFILE_'//HDATE(1:datelen), form='unformatted',&
                    position='APPEND')
            endif
         enddo DOFILES
         inquire (iunit, OPENED=LOPEN)
         if (.not. LOPEN) then
-           open(iunit, file=trim(get_path(prefix))//'PFILE:'//HDATE(1:datelen), form='unformatted', &
+           open(iunit, file=trim(get_path(prefix))//'PFILE_'//HDATE(1:datelen), form='unformatted', &
                 position='REWIND')
            nfiles = nfiles + 1
            filedates(nfiles)(1:datelen) = hdate(1:datelen)
         endif
      endif
   else if (iflag.eq.2) then
-     open(iunit, file=trim(prefix)//':'//HDATE(1:datelen), form='unformatted', &
+     open(iunit, file=trim(prefix)//'_'//HDATE(1:datelen), form='unformatted', &
           position='REWIND')
   endif
 

@@ -388,7 +388,7 @@ program ungrib
 
 ! Now delete the temporary files:
 
-  call file_delete(filedates, nfiles, trim(get_path(prefix))//'PFILE:', interval)
+  call file_delete(filedates, nfiles, trim(get_path(prefix))//'PFILE_', interval)
 
 ! And Now we are done:
 

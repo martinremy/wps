@@ -132,7 +132,7 @@ subroutine rrpr(hstart, ntimes, interval, nlvl, maxlvl, plvl, &
          call mprintf(.true.,INFORM, &
             "RRPR Processing : %s",s1=filedates(n)(1:datelen))
        endif
-       open(iunit, file=trim(get_path(prefix))//'PFILE:'//filedates(n)(1:datelen), &
+       open(iunit, file=trim(get_path(prefix))//'PFILE_'//filedates(n)(1:datelen), &
           form='unformatted',status='old')
 
 ! Read the file:

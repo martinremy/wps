@@ -3,3 +3,6 @@ ungrib.exe
 metgrid.exe
 configure.wps
 configure.wps.backup
+/build
+/.vscode
+.mypy_cache/

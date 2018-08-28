@@ -33,7 +33,7 @@ module write_met_module
       !  1) BUILD FILENAME BASED ON TIME 
       met_out_filename = ' '
       if (.not. source_is_constant) then 
-         write(met_out_filename, '(a)') trim(fg_source)//':'//trim(datestr)
+         write(met_out_filename, '(a)') trim(fg_source)//'_'//trim(datestr)
       else
          write(met_out_filename, '(a)') trim(fg_source)
       end if

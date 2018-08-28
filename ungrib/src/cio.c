@@ -42,6 +42,7 @@
 #include <errno.h>
 #include <sys/types.h>
 #ifndef _WIN32
+# define O_BINARY 0
 # include <unistd.h>
 # include <sys/ioctl.h>
 # include <sys/uio.h>
@@ -94,9 +95,9 @@ c_open(unit, nunit, name, mode, err, oflag)
     if (*mode == 0)		/* WRITE ONLY */
 	fd = creat(fname, 0777);
     else if (*mode == 1)	/* READ ONLY */
-	fd = open(fname, O_RDONLY);
+	fd = open(fname, O_RDONLY | O_BINARY);
     else			/* READ/WRITE */
-	fd = open(fname, O_RDWR);
+	fd = open(fname, O_RDWR | O_BINARY);
     if (*oflag >= 1)
 	printf("UNIX File descriptor: %d\n\n", fd);
 

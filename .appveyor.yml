@@ -10,13 +10,13 @@ environment:
     WRF_COMMIT: wrf-cmake
 
   matrix:
-    - BUILD_TYPE: Release
+    - BUILD_TYPE: Debug
       MODE: serial
       NESTING: basic
       GRIB1: 0
       GRIB2: 1
 
-    - BUILD_TYPE: Release
+    - BUILD_TYPE: Debug
       MODE: dmpar
       NESTING: basic
       GRIB1: 0

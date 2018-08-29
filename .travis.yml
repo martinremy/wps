@@ -10,7 +10,7 @@ env:
     - WRF_COMMIT=wrf-cmake
     - WPS_COMMIT=$TRAVIS_COMMIT
     - WATS_REPO=WRF-CMake/wats
-    - WATS_BRANCH=master
+    - WATS_BRANCH=wats-ci # TODO change to master
     - WATS_DATA_REPO=WRF-CMake/wats-data
     - WATS_MODE=wps
 
@@ -65,7 +65,6 @@ jobs:
         - GRIB2=0
         - MODE=dm+sm
         - NESTING=basic
-        - IDEAL_CASE=ALL
 
     - stage: build
       os: osx
@@ -97,19 +96,16 @@ jobs:
 
     - stage: wats
       os: linux
-      git:
-        depth: 1 # ideally we'd like to disable cloning completely
       before_install: skip
       install:
-        - git clone --depth=1 --branch=$WATS_BRANCH git@github.com:$WATS_REPO.git wats
+        - git clone --depth=1 --branch=$WATS_BRANCH https://github.com/$WATS_REPO.git wats
       script:
         - wats/.ci/travis/trigger-wats-travis.sh
         - wats/.ci/travis/trigger-wats-appveyor.sh
 
 before_install:
-  - ln -r -s . ../WPS
   - pushd ..
-  - git clone --depth=100 --no-single-branch git@github.com:$WRF_REPO.git WRF
+  - git clone --depth=100 --no-single-branch https://github.com/$WRF_REPO.git WRF
   - cd WRF
   - git checkout $WRF_COMMIT
   - .ci/travis/setup-dependencies.sh
@@ -123,15 +119,18 @@ script: skip
 
 before_deploy:
   - cd ..
-  - git clone --depth=1 --branch=$WATS_BRANCH git@github.com:$WATS_REPO.git wats
+  - git clone --depth=1 --branch=$WATS_BRANCH https://github.com/$WATS_REPO.git wats
   - pip install -r wats/requirements.txt
   - if [[ $MODE == dm* ]]; then export MPI_FLAG=--mpi ; fi
   - python wats/wats/main.py run --mode $WATS_MODE --wrf-dir WRF --wps-dir WPS --work-dir wats_work $MPI_FLAG
 
 deploy:
-  provider: script
-  skip_cleanup: true
+  provider: pages
+  github-token: $GITHUB_TOKEN
+  skip-cleanup: true
+  local-dir: ../wats_work/output
+  repo: $WATS_DATA_REPO
+  target-branch: $TRAVIS_REPO_SLUG-$TRAVIS_BUILD_NUMBER-$MODE
   on:
     all_branches: true
     condition: $SYSTEM = make
-  script: bash wats/.ci/travis/deploy-wats-data.sh wats_work/output

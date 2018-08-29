@@ -10,7 +10,7 @@ env:
     - WRF_COMMIT=wrf-cmake
     - WPS_COMMIT=$TRAVIS_COMMIT
     - WATS_REPO=WRF-CMake/wats
-    - WATS_BRANCH=wats-ci # TODO change to master
+    - WATS_BRANCH=master
     - WATS_DATA_REPO=WRF-CMake/wats-data
     - WATS_MODE=wps
 

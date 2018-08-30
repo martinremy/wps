@@ -30,6 +30,7 @@ add_subdirectory(ngl)
 
 add_definitions(-DBIT32)
 
+set(CMAKE_Fortran_MODULE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/mod/pgu)
 add_library(pgu STATIC
     "${GEOGRID_SRC}/module_debug.F"
     "${GEOGRID_SRC}/misc_definitions_module.F"
@@ -60,6 +61,8 @@ target_include_directories(pgu
 # the intermediate .i file of the other cio.c in this folder.
 configure_file(${GEOGRID_SRC}/cio.c debug_cio.c COPYONLY)
 
+# See comment in /util/CMakeLists.txt on why setting the module directory is necessary here.
+set(CMAKE_Fortran_MODULE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/mod/g1print)
 add_executable(g1print
     ${GEOGRID_SRC}/module_debug.F
     ${CMAKE_CURRENT_BINARY_DIR}/debug_cio.c
@@ -72,6 +75,7 @@ target_link_libraries(g1print
     pgu
 )
 
+set(CMAKE_Fortran_MODULE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/mod/g2print)
 add_executable(g2print
     filelist.F
     gridinfo.F
@@ -87,6 +91,7 @@ target_link_libraries(g2print
     g2
 )
 
+set(CMAKE_Fortran_MODULE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/mod/ungrib)
 add_executable(ungrib
     "${GEOGRID_SRC}/misc_definitions_module.F"
     "${GEOGRID_SRC}/module_debug.F"

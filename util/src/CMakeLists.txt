@@ -3,6 +3,13 @@
 # The plotgrids and plotfmt executables are omitted here as they depend
 # on the ncarg library (NCAR Graphics) which does not run on Windows.
 
+# .mod files are by default created in the same CMAKE_CURRENT_BINARY_DIR folder.
+# Even though we don't use the .mod files it leads to deletion/copying issues if
+# parallel compilation is enabled that are caused by race conditions. E.g.:
+# "Can't rename module file 'misc_definitions_module.mod0' to 'misc_definitions_module.mod': No such file or directory"
+# Here we set a separate .mod folder for each executable to avoid such problems.
+
+set(CMAKE_Fortran_MODULE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/mod/rd_intermediate)
 add_executable(rd_intermediate
     rd_intermediate.F
     "${GEOGRID_SRC}/module_debug.F"
@@ -13,6 +20,7 @@ add_executable(rd_intermediate
     "${METGRID_SRC}/met_data_module.F"
 )
 
+set(CMAKE_Fortran_MODULE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/mod/avg_tsfc)
 add_executable(avg_tsfc
     avg_tsfc.F
     "${GEOGRID_SRC}/cio.c"
@@ -26,6 +34,7 @@ add_executable(avg_tsfc
     "${METGRID_SRC}/met_data_module.F"
 )
 
+set(CMAKE_Fortran_MODULE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/mod/elev_angle)
 add_executable(elev_angle
    elev_angle.F
    "${GEOGRID_SRC}/cio.c"
@@ -44,6 +53,7 @@ target_link_libraries(elev_angle
    ${NETCDF_LIBRARIES}
 )
 
+set(CMAKE_Fortran_MODULE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/mod/calc_ecmwf_p)
 add_executable(calc_ecmwf_p
     calc_ecmwf_p.F
     "${UNGRIB_SRC}/module_stringutil.F"
@@ -58,6 +68,7 @@ add_executable(calc_ecmwf_p
     "${METGRID_SRC}/met_data_module.F"
 )
 
+set(CMAKE_Fortran_MODULE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/mod/mod_levs)
 add_executable(mod_levs
     mod_levs.F
     "${GEOGRID_SRC}/module_debug.F"
@@ -69,6 +80,7 @@ add_executable(mod_levs
     "${METGRID_SRC}/met_data_module.F"
 )
 
+set(CMAKE_Fortran_MODULE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/mod/int2nc)
 add_executable(int2nc
     int2nc.F
     "${GEOGRID_SRC}/module_debug.F"
@@ -85,6 +97,7 @@ target_link_libraries(int2nc
     ${NETCDF_LIBRARIES}
 )
 
+set(CMAKE_Fortran_MODULE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/mod/height_ukmo)
 add_executable(height_ukmo
     height_ukmo.F
     "${GEOGRID_SRC}/cio.c"

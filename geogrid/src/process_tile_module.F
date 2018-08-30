@@ -194,6 +194,9 @@ module process_tile_module
       nullify(xlon_array_subgrid)
       nullify(mapfac_array_x_subgrid)
       nullify(mapfac_array_y_subgrid)
+
+      call mprintf(.true.,LOGFILE, "Processing tile: minx=%i maxx=%i miny=%i maxy=%i", &
+         i1=dummy_start_patch_i, i2=dummy_end_patch_i, i3=dummy_start_patch_j, i4=dummy_end_patch_j)
     
       ! Initialize hash table to track which fields have been processed
       call hash_init(processed_fieldnames)

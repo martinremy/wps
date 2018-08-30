@@ -316,6 +316,9 @@ module process_domain_module
       !   my_minx, my_miny, my_maxx, my_maxy
       call parallel_get_tile_dims(west_east_dim, south_north_dim)
 
+      call mprintf(.true.,LOGFILE, "Processing tile: minx=%i maxx=%i miny=%i maxy=%i", &
+         i1=my_minx, i2=my_maxx, i3=my_miny, i4=my_maxy)
+
       ! Must figure out patch dimensions from info in parallel module
       if (nprocs > 1 .and. .not. do_tiled_input) then
 

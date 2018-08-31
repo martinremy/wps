@@ -54,19 +54,15 @@ option(ENABLE_GRIB2_PNG "Whether to enable PNG compression support for GRIB2 (in
 option(ENABLE_GRIB2_JPEG2000 "Whether to enable JPEG2000 compression support for GRIB2 (in ungrib)" ON)
 set(WRF_DIR "" CACHE PATH "Path to the build folder of WRF (via cmake --build .) or to where WRF was installed to (via cmake --build . --target install)")
 
-set(MODE "serial" CACHE STRING "Parallelization mode (serial = no parallelization, dmpar = MPI)")
-set(MODE_VALUES serial dmpar)
-set_property(CACHE MODE PROPERTY STRINGS ${MODE_VALUES})
-list (FIND MODE_VALUES "${MODE}" _index)
-if (${_index} EQUAL -1)
-	message(FATAL_ERROR "MODE variable must be one of: ${MODE_VALUES} but is: ${MODE}")
-endif()
-if (MODE STREQUAL "dmpar")
-	set(ENABLE_MPI ON)
-endif()
-
 find_package(WRF REQUIRED CONFIG
 	HINTS "${WRF_DIR}/cmake")
+
+set(ENABLE_MPI ${WRF_HAS_MPI})
+if (ENABLE_MPI)
+	message(STATUS "WRF was compiled with MPI support, enabling MPI for WPS")
+else()
+	message(STATUS "WRF was NOT compiled with MPI support, disabling MPI for WPS")
+endif()
 
 if (ENABLE_GRIB1 AND NOT WRF_HAS_GRIB1)
 	message(FATAL_ERROR "WRF was not compiled with GRIB 1 support, cannot use -DENABLE_GRIB1=ON")

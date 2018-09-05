@@ -2,7 +2,21 @@
 
 WPS-CMake adds CMake support to the latest version of the [Advanced Research Weather Research and Forecasting](https://www.mmm.ucar.edu/weather-research-and-forecasting-model) model with the intention of streamlining and simplifying its configuration and build process. In our view, the use of CMake provides model developers, code maintainers, and end-users with several advantages such as robust incremental rebuilds, flexible library dependency discovery, native tool-chains for Windows, macOS, and Linux with minimal external dependencies, thus increasing portability, and automatic generation of project files for different platforms.
 
-If you want to know how to install WRF-CMake and WPS-CMake please refer the [WRF-CMake page](https://github.com/WRF-CMake/WRF#readme).
+## Download pre-built binaries
+We currently provide WRF-CMake and WPS-CMake pre-built binary distributions for Windows, macOS and Linux ([RPM-based and Debian-based distribution-compatible](https://en.wikipedia.org/wiki/List_of_Linux_distributions)).
+To download the latest pre-compiled binary-releases, please see the following links WRF-CMake and WPS-CMake respectively:
+
+- WRF-CMake (`serial` and `dmpar`): [https://github.com/WRF-CMake/WRF/releases](https://github.com/WRF-CMake/WRF/releases).
+- WPS-CMake (`serial` and `dmpar`): [https://github.com/WRF-CMake/WPS/releases](https://github.com/WRF-CMake/WPS/releases).
+
+Note that if you want to launch WRF-CMake and WPS-CMake built in `dmpar` to run on multiple processes, you need to have MPI installed on your system.
+
+- On Windows, download and install Microsoft MPI — download and install `msmpisetup.exe` from [https://www.microsoft.com/en-us/download/details.aspx?id=56727](https://www.microsoft.com/en-us/download/details.aspx?id=56727).
+- On macOS you can get it though [Homebrew](https://brew.sh/) using `brew update && brew install mpich`
+- On Linux, use your package manager to download mpich. E.g. `sudo apt install mpich` on Debian-based systems or `sudo yum install mpich` on RPM-based system like CentOS.
+
+## Build from source
+If you want to know how to install WRF-CMake and WPS-CMake from source please refer the [WRF-CMake page](https://github.com/WRF-CMake/WRF#readme).
 
 ## Changes to be upstreamed
 - `metgrid/src/{read,write}_met_module.F`, `ungrib/src/{datint,output,rrpr,ungrib}.F`: Replace colons with underscores in filenames to be compatible with Windows

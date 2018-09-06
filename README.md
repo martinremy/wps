@@ -2,8 +2,8 @@
 
 WPS-CMake adds CMake support to the latest version of the [Advanced Research Weather Research and Forecasting](https://www.mmm.ucar.edu/weather-research-and-forecasting-model) model with the intention of streamlining and simplifying its configuration and build process. In our view, the use of CMake provides model developers, code maintainers, and end-users with several advantages such as robust incremental rebuilds, flexible library dependency discovery, native tool-chains for Windows, macOS, and Linux with minimal external dependencies, thus increasing portability, and automatic generation of project files for different platforms.
 
-## Download pre-built binaries
-We currently provide WRF-CMake and WPS-CMake pre-built binary distributions for Windows, macOS and Linux ([RPM-based and Debian-based distribution-compatible](https://en.wikipedia.org/wiki/List_of_Linux_distributions)).
+## Download pre-built binaries [Experimental]
+We currently provide WRF-CMake and WPS-CMake pre-built binary distributions for Windows, macOS and Linux ([RPM-based and Debian-based distribution-compatible](https://en.wikipedia.org/wiki/List_of_Linux_distributions)). Please note that these pre-built binary distributions are currently experimental — we would appreciate if you could report any issues directly on GitHub [here](https://github.com/WRF-CMake/WPS/issues).
 To download the latest pre-compiled binary-releases, please see the following links WRF-CMake and WPS-CMake respectively:
 
 - WRF-CMake (`serial` and `dmpar`): [https://github.com/WRF-CMake/WRF/releases](https://github.com/WRF-CMake/WRF/releases).

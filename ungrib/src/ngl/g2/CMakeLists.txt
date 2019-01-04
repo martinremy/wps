@@ -12,14 +12,10 @@ add_library(g2 STATIC
 	addfield.F
 	addgrid.f
 	addlocal.f
-	cmplxpack.f
-	compack.f
 	comunpack.f
 	dec_jpeg2000.c
 	dec_png.c
 	drstemplates.f
-	enc_jpeg2000.c
-	enc_png.c
 	g2grids.f
 	gb_info.f
 	gbytesc.f
@@ -54,25 +50,19 @@ add_library(g2 STATIC
 	gridtemplates.f
 	intmath.f
 	ixgb2.f
-	jpcpack.F
 	jpcunpack.F
-	misspack.f
 	mkieee.f
 	mova2i.c
-	pack_gp.f
     params_ecmwf.f
     params.f
 	pdstemplates.f
-	pngpack.F
 	pngunpack.F
     putgb2.f
 	rdieee.f
 	realloc.f
 	reduce.f
-	simpack.f
 	simunpack.f
 	skgb.f
-	specpack.f
 	specunpack.f
 	#../w3/baciof.f       # FIXME: these are the files needed to complete the compilation of the g2
 	#../w3/r63w72.f			# library using dynamic linking. For now I have commented these files out and

@@ -21,7 +21,9 @@ If you want to know how to install WRF-CMake and WPS-CMake from source please re
 ## Changes to be upstreamed
 - `metgrid/src/{read,write}_met_module.F`, `ungrib/src/{datint,output,rrpr,ungrib}.F`: Replace colons with underscores in filenames to be compatible with Windows
 - `ungrib/src/cio.c`, `ungrib/src/ngl/w3/bacio.v1.3.c`: Fixed file opening on Windows which is text-mode by default and has been changed to binary mode
-- `util/src/elev_angle.F`: Establish compatibility with modern compilers by moving subroutines into module and changing 'extern' to 'intrinsic' for `iargc`
+- `util/src/elev_angle.F`: Establish compatibility with modern compilers by moving subroutines into module
+- `util/src/elev_angle.F`: Add support for compilers that define `iargc` as 'intrinsic' instead of 'external'
+- `util/src/elev_angle.F`: Fixed ordering of argument declarations to avoid Cray compile errors
 
 ## Copyright and license
 General WRF copyright and license applies for any files part of the original WPS distribution — see the [README](README) file for more details.

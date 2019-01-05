@@ -101,8 +101,8 @@ subroutine write_elev_angles(field, we_dim, sn_dim, kdim, istatus)
    implicit none
 
    ! Arguments
-   real, dimension(we_dim, sn_dim, kdim), intent(in) :: field
    integer, intent(in)                               :: we_dim, sn_dim, kdim 
+   real, dimension(we_dim, sn_dim, kdim), intent(in) :: field
    integer, intent(out)                              :: istatus
 
    ! Local variables
@@ -159,8 +159,11 @@ program elev_angle
    use elev_angle_helpers
 
    implicit none
-
-   integer, INTRINSIC :: iargc
+#ifdef _CRAYFTN
+   integer, external :: iargc
+#else
+   integer, intrinsic :: iargc
+#endif
 
    integer :: istatus
    integer :: i, j, n_bins, we_dim, sn_dim

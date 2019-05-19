@@ -154,8 +154,8 @@ COMPRESSION_INC     = CONFIGURE_COMP_I
 FDEFS               = CONFIGURE_FDEFS
 SFC                 = gfortran
 SCC                 = gcc
-DM_FC               = mpif90
-DM_CC               = mpicc
+DM_FC               = mpif90 -f90=$(SFC)
+DM_CC               = mpicc -cc=$(SCC) 
 FC                  = CONFIGURE_FC 
 CC                  = CONFIGURE_CC
 LD                  = $(FC)

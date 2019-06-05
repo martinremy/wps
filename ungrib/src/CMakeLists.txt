@@ -121,6 +121,9 @@ target_link_libraries(ungrib
     g2
 )
 
-install( TARGETS g1print g2print ungrib
+install( TARGETS ungrib
     RUNTIME DESTINATION .
+)
+install( TARGETS g1print g2print
+    RUNTIME DESTINATION util
 )

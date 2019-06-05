@@ -69,5 +69,5 @@ set_property(
     PROPERTY Fortran_FORMAT FREE)
 
 install(TARGETS ${utils}
-    RUNTIME DESTINATION .
+    RUNTIME DESTINATION util
 )

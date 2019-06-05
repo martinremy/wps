@@ -298,4 +298,4 @@ add_subdirectory(metgrid)
 add_subdirectory(util)
 add_subdirectory(cmake/post_install)
 
-install(FILES link_grib.py DESTINATION .)
+install(PROGRAMS link_grib.py DESTINATION .)

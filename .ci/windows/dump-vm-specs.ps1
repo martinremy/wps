@@ -1,3 +1,6 @@
+# WRF-CMake (https://github.com/WRF-CMake/wps).
+# Copyright 2019 M. Riechert and D. Meyer. Licensed under the MIT License.
+
 Get-CimInstance Win32_Processor | 
     Select-Object Name, NumberOfCores, NumberOfLogicalProcessors | 
     Format-List

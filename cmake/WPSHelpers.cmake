@@ -1,3 +1,4 @@
+# WRF-CMake (https://github.com/WRF-CMake/wps).
 # Copyright 2018 M. Riechert and D. Meyer. Licensed under the MIT License.
 
 # Identical to wrf_enable_mpi in the WRF repository (WRFHelpers.cmake)

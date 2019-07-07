@@ -1,3 +1,6 @@
+# WRF-CMake (https://github.com/WRF-CMake/wps).
+# Copyright 2019 M. Riechert and D. Meyer. Licensed under the MIT License.
+
 # First, create a tag for the new version.
 # Then, run this pipeline on the tag to store binaries in a draft GitHub release.
 

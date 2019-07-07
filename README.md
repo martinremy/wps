@@ -1,7 +1,7 @@
-# WPS-CMake [![Build status Appveyor](https://ci.appveyor.com/api/projects/status/8axylclvn10h32kk/branch/wps-cmake?svg=true)](https://ci.appveyor.com/project/WRF-CMake/wps/branch/wps-cmake) [![Build Status Travis CI](https://travis-ci.com/WRF-CMake/WPS.svg?branch=wps-cmake)](https://travis-ci.com/WRF-CMake/WPS) [![Build Status Azure Pipelines](https://dev.azure.com/WRF-CMake/WRF/_apis/build/status/WPS%20(full)?branchName=wps-cmake)](https://dev.azure.com/WRF-CMake/WRF/_build/latest?definitionId=6&branchName=wps-cmake)
+# WPS-CMake [![Build status Appveyor](https://ci.appveyor.com/api/projects/status/8axylclvn10h32kk/branch/wps-cmake?svg=true)](https://ci.appveyor.com/project/WRF-CMake/wps/branch/wps-cmake) [![Build Status Travis CI](https://travis-ci.com/WRF-CMake/wps.svg?branch=wps-cmake)](https://travis-ci.com/WRF-CMake/wps) [![Build Status Azure Pipelines](https://dev.azure.com/WRF-CMake/wrf/_apis/build/status/WPS%20(full)?branchName=wps-cmake)](https://dev.azure.com/WRF-CMake/wrf/_build/latest?definitionId=6&branchName=wps-cmake)
 
 
-**Please see the [WRF-CMake repository](https://github.com/WRF-CMake/WRF#readme) for information on how to install WPS-CMake**
+**Please see the [WRF-CMake repository](https://github.com/WRF-CMake/wrf#readme) for information on how to install WPS-CMake**
 
 
 ## Changes to be upstreamed

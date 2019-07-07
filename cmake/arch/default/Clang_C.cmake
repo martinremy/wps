@@ -1,4 +1,4 @@
-# WPS-CMake (https://github.com/WRF-CMake/WPS).
+# WPS-CMake (https://github.com/WRF-CMake/wps).
 # Copyright 2019 M. Riechert and D. Meyer. Licensed under the MIT License.
 
 set(debug "-g")

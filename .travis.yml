@@ -5,7 +5,7 @@ python: "3.6"
 
 env:
   global:
-    - WRF_REPO=WRF-CMake/WRF
+    - WRF_REPO=WRF-CMake/wrf
     - WRF_COMMIT=wrf-cmake
 
 jobs:

@@ -10,7 +10,7 @@ skip_commits:
 
 environment:
   global:
-    WRF_REPO: WRF-CMake/WRF
+    WRF_REPO: WRF-CMake/wrf
     WRF_COMMIT: wrf-cmake
     BUILD_SYSTEM: CMake
 

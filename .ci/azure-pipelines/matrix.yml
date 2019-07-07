@@ -15,7 +15,7 @@ parameters:
     FC: gfortran
   
   common:
-    WRF_REPO: WRF-CMake/WRF
+    WRF_REPO: WRF-CMake/wrf
     WRF_COMMIT: wrf-cmake # also change here: /azure-pipelines-wats-pkg.yml
     WATS_REPO: WRF-CMake/wats
     WATS_BRANCH: master # also change here: /azure-pipelines-wats-pkg.yml

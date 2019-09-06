@@ -245,6 +245,9 @@ if (ENABLE_NETCDF)
 		set(NETCDF_F99_LIBRARIES ${NETCDF_F99_LIBRARIES} ${NETCDF_C_LIBRARIES} ${HDF5_LIBRARIES} ${HDF5_HL_LIBRARIES})
 		set(NETCDF_LIBRARIES ${NETCDF_LIBRARIES} ${HDF5_LIBRARIES} ${HDF5_HL_LIBRARIES})
 	endif()
+
+	# Work-around for https://github.com/WRF-CMake/wps/issues/16.
+	add_compile_options(-UDEBUG)
 endif()
 
 if (ENABLE_GRIB2_PNG)

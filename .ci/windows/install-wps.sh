@@ -23,6 +23,7 @@ if [ $BUILD_SYSTEM == "CMake" ]; then
 
     # Sometimes there are intermittent issues (e.g. related to locked files).
     # The construction below means "try with 2 cores, and if it fails, try again with 1 core".
+    export VERBOSE=1
     cmake --build . --target install -- -j2 \
         || cmake --build . --target install \
         || cmake --build . --target install

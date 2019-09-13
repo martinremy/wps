@@ -1,5 +1,6 @@
 # WPS-CMake
-[![Build status Appveyor](https://ci.appveyor.com/api/projects/status/8axylclvn10h32kk/branch/wps-cmake?svg=true)](https://ci.appveyor.com/project/WRF-CMake/wps/branch/wps-cmake) [![Build Status Travis CI](https://travis-ci.com/WRF-CMake/wps.svg?branch=wps-cmake)](https://travis-ci.com/WRF-CMake/wps) [![Build Status Azure Pipelines](https://dev.azure.com/WRF-CMake/wrf/_apis/build/status/WPS%20(full)?branchName=wps-cmake)](https://dev.azure.com/WRF-CMake/wrf/_build/latest?definitionId=6&branchName=wps-cmake)
+[![Build status Appveyor](https://ci.appveyor.com/api/projects/status/8axylclvn10h32kk/branch/wps-cmake?svg=true)](https://ci.appveyor.com/project/WRF-CMake/wps/branch/wps-cmake) [![Build Status Travis CI](https://travis-ci.com/WRF-CMake/wps.svg?branch=wps-cmake)](https://travis-ci.com/WRF-CMake/wps) [![Build Status Azure Pipelines](https://dev.azure.com/WRF-CMake/wrf/_apis/build/status/WPS%20(full)?branchName=wps-cmake)](https://dev.azure.com/WRF-CMake/wrf/_build/latest?definitionId=6&branchName=wps-cmake) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3407074.svg)](https://doi.org/10.5281/zenodo.3407074)
+
 
 ## Installation
 
@@ -7,7 +8,9 @@ Please see the [WRF-CMake repository](https://github.com/WRF-CMake/wrf#installat
 
 
 ## How to cite
-Permanent DOIs for versions of the WPS-CMake extension are avalable on Zenodo at https://doi.org/10.5281/zenodo.3407074.
+
+Permanent DOIs for versions of the WPS-CMake extension are avalable on Zenodo at https://zenodo.org/record/3407074.
+
 For information on how to cite WRF-CMake, please see the [How to cite section](https://github.com/WRF-CMake/wrf#how-to-cite) in the WRF-CMake repository.
 
 

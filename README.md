@@ -7,7 +7,7 @@ Please see the [WRF-CMake repository](https://github.com/WRF-CMake/wrf#installat
 
 
 ## How to cite
-Permanent DOIs for versions of the WPS-CMake extension are avalable on Zenodo at XXX.
+Permanent DOIs for versions of the WPS-CMake extension are avalable on Zenodo at https://doi.org/10.5281/zenodo.3407074.
 For information on how to cite WRF-CMake, please see the [How to cite section](https://github.com/WRF-CMake/wrf#how-to-cite) in the WRF-CMake repository.
 
 

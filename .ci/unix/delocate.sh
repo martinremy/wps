@@ -26,8 +26,8 @@ elif [ "$(lsb_release -i -s)" == "CentOS" ]; then
     tmp_dir=$(mktemp -d)
     cd $tmp_dir
 
-    echo "from setuptools import setup; setup(name='app', packages=['main'], package_data={'main': ['*.exe']})" > setup.py
-    ln -s $root_dir/build/install main
+    echo "from setuptools import setup; setup(name='main', packages=[''], package_data={'': ['*.exe', 'util/*.exe']})" > setup.py
+    cp -r $root_dir/build/install/. .
     $py setup.py bdist_wheel
 
     # CentOS uses /usr/lib64 but some manually installed dependencies end up in /usr/lib
@@ -38,7 +38,9 @@ elif [ "$(lsb_release -i -s)" == "CentOS" ]; then
     unzip *.whl
 
     # /bin/cp as cp is aliased to 'cp -i' and would ask before overwriting
-    /bin/cp -r main/. $root_dir/build/install
+    /bin/cp *.exe $root_dir/build/install
+    /bin/cp util/*.exe $root_dir/build/install/util
+    /bin/cp -r main.libs $root_dir/build/install
 
 else
     echo "Unsupported OS: $(uname)"

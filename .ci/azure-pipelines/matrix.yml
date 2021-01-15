@@ -9,21 +9,21 @@ parameters:
     Windows: windows.yml
   
   Ubuntu:
-    CC: gcc-9
-    FC: gfortran-9
+    CC: gcc-10
+    FC: gfortran-10
   CentOS:
     CC: gcc
     FC: gfortran
   macOS:
-    CC: gcc-9
-    FC: gfortran-9
+    CC: gcc-10
+    FC: gfortran-10
   Windows:
     CC: gcc
     FC: gfortran
   
   common:
     WRF_REPO: WRF-CMake/wrf
-    WRF_COMMIT: wrf-cmake # also change here: /azure-pipelines-wats-pkg.yml
+    WRF_COMMIT: letmaik/wrf-4.2.1 #wrf-cmake # also change here: /azure-pipelines-wats-pkg.yml
     WATS_REPO: WRF-CMake/wats
     WATS_BRANCH: master # also change here: /azure-pipelines-wats-pkg.yml
     WATS_MODE: wps

@@ -12,12 +12,12 @@ if [ $BUILD_SYSTEM == "CMake" ]; then
 
     mkdir build && cd build
 
-    cmake -DCMAKE_BUILD_TYPE=${BUILD_TYPE} -DCMAKE_INSTALL_PREFIX=install -DWRF_DIR=../../WRF/build \
+    cmake -GNinja -DCMAKE_BUILD_TYPE=${BUILD_TYPE} -DCMAKE_INSTALL_PREFIX=install -DWRF_DIR=../../WRF/build \
           -DENABLE_GRIB1=${GRIB1} -DENABLE_GRIB2_PNG=${GRIB2} -DENABLE_GRIB2_JPEG2000=${GRIB2} \
           -DDEBUG_ARCH=ON -DDEBUG_GLOBAL_DEFINITIONS=ON -LA ..
     
     export VERBOSE=1
-    cmake --build . --target install -- -j2
+    cmake --build . --target install
 
 elif [ $BUILD_SYSTEM == "Make" ]; then
 

@@ -126,7 +126,7 @@ set(CMAKE_C_FLAGS "${C_other}")
 set(CMAKE_Fortran_FLAGS_DEBUG "${Fortran_debug} ${Fortran_checked}")
 set(CMAKE_Fortran_FLAGS_RELEASE "${Fortran_optimized}")
 set(CMAKE_Fortran_FLAGS_RELWITHDEBINFO "${Fortran_optimized} ${Fortran_debug}")
-set(CMAKE_Fortran_FLAGS "${Fortran_preprocess} ${Fortran_io} ${Fortran_other}")
+set(CMAKE_Fortran_FLAGS "${Fortran_preprocess} ${Fortran_io} ${Fortran_other} -w -fallow-argument-mismatch -O2")
 
 if (ENABLE_RUNTIME_CHECKS)
     set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} ${C_checked}")
